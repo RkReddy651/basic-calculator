@@ -13,6 +13,14 @@ function App() {
   const deleteOne=()=>{
     setResult(result.slice(0, result.length-1))
   }
+  const calculate=()=>{
+    console.log(result)
+    try{
+      setResult(eval(result).toString())
+    }catch(err){
+      setResult('wrong input')
+    }
+  }
 
   return (
     <div className="container">
@@ -22,11 +30,11 @@ function App() {
       <div className="buttons">
         <button className='ac span-two' onClick={deleteAll}>AC</button>
         <button onClick={deleteOne}>Del</button>
-        <button name='/' onClick={handleClick}>÷</button>
+        <button name='/' onClick={handleClick}>&divide;</button>
         <button name='1' onClick={handleClick}>1</button>
         <button name='2' onClick={handleClick}>2</button>
         <button name='3' onClick={handleClick}>3</button>
-        <button name='x' onClick={handleClick}>x</button>
+        <button name='*' onClick={handleClick}>&times;</button>
         <button name='4' onClick={handleClick}>4</button>
         <button name='5' onClick={handleClick}>5</button>
         <button name='6' onClick={handleClick}>6</button>
@@ -37,7 +45,7 @@ function App() {
         <button name='-' onClick={handleClick}>-</button>
         <button name='.' onClick={handleClick}>.</button>
         <button name='0' onClick={handleClick}>0</button>
-        <button className='span-two' onClick={handleClick}>=</button>
+        <button className='span-two' onClick={calculate}>=</button>
       </div>
     </div>
   );
